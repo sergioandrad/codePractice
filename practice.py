@@ -1,4 +1,34 @@
 ##################################################################################
+# checkCardNumber
+# Autor: Sergio Henrique Andrade de Azevedo;
+# Descricao: Utilizando regex para identificar se um número é um número de cartão
+# de crédito sob as seguintes restrições:
+# i. Começa com 4, 5 ou 6.
+# ii. Contem 16 digitos.
+# iii. Possivelmente dividio por hifens
+# iv. Nao contem outros separadores como ' ' e '_'.
+# v. Nao contem 4 ou mais digitos consecutivos repetidos.
+##################################################################################
+
+dados = input().split(sep='\n')
+del dados[0]   
+
+import re
+pattern = re.compile(pattern = '[456]\d{15}|[456]\d{3}(-\d{4}){3}')
+consec  = re.compile(pattern = '(.)\\1{3,}')
+ 
+def checkCardNumber(s):
+    check = pattern.match(s) != None and consec.search(s.replace('-','').replace(' ','')) == None
+    if check == True: 
+        print('Valid') 
+    else: 
+        print('Invalid')
+ 
+for i in dados:
+    checkCardNumber(i)
+
+
+##################################################################################
 # swapCases
 # Autor: Sergio Henrique Andrade de Azevedo;
 # Descricao: Troca letras maisculas por minusculas e vice-versa.
@@ -71,4 +101,17 @@ createFig(int(dim[0]),int(dim[1]))
 
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
