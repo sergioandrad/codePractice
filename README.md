@@ -1,2 +1,2 @@
-# pythonPractice
- Coleção de pequenos exercícios de Python.
+# codePractice
+ Coleção de pequenos exercícios de código em Python e C.
